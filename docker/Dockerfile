@@ -32,7 +32,7 @@ RUN rm -rf /var/lib/apt/lists/* && \
   useradd -r -g maltrieve -d /home/maltrieve -s /sbin/nologin -c "Maltrieve User" maltrieve
 
 WORKDIR /home
-RUN git clone https://github.com/krmaxwell/maltrieve.git && \
+RUN git clone https://github.com/mikedgibson/maltrieve.git && \
   cd maltrieve && \
   git checkout dev && \
   pip install -e . && \
@@ -46,4 +46,3 @@ ENV HOME /home/maltrieve
 ENV USER maltrieve
 WORKDIR /home/maltrieve
 ENTRYPOINT ["maltrieve"]
-CMD ["-d", "/archive/samples", "-l", "/archive/maltrieve.log"]
